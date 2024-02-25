@@ -14,12 +14,12 @@ function render_at_size {
   img_path="${3}"
 
   # animation is turned off as it does werid things with the terminal output
-  chafa --animate=off --center=on --clear --size "${max_width}x${max_height}" "${img_path}"
+  kitty icat --clear --place "${max_width}x${max_height}@0x0" "${img_path}"
 }
 
 function draw_preview {
-    if ! command -v chafa &> /dev/null; then
-      echo "chafa could not be found in your path,\nplease install it to display media content"
+    if ! command -v kitty &> /dev/null; then
+      echo "kitty could not be found in your path,\nplease install it to display media content"
       exit
     fi
 
